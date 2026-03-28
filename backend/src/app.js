@@ -12,7 +12,10 @@ const app = express();
 // Middleware
 app.use(
   cors({
-    origin: process.env.FRONTEND_URL || "http://localhost:5173",
+    origin: [
+      "http://localhost:5173",
+      "https://society-homechef.vercel.app"
+    ],
     credentials: true,
   }),
 );
