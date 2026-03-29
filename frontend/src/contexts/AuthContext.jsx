@@ -51,7 +51,7 @@ export const AuthProvider = ({ children }) => {
     ...options.headers,
   };
 
-  const API_BASE = import.meta.env.VITE_API_URL;
+  const API_BASE ="https://society-homechef-backend.onrender.com";
 
   const res = await fetch(`${API_BASE}${url}`, {
     ...options,
