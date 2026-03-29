@@ -230,15 +230,15 @@ Use the following credentials to test different roles in the application:
 
 ### Customer
 
-* Email: `aman1@gmail.com`
-* Password: `aman1@abc`
+* Email: `test1@gmail.com`
+    * Password: `123456`
 
 ### Chef
 
-* Email: `aman3@gmail.com`
-* Password: `aman3@abc`
+* Email: `test3@gmail.com`
+* Password: `123456`
 
 ### Rider
 
-* Email: `aman2@gmail.com`
-* Password: `aman2@abc`
+* Email: `test2@gmail.com`
+* Password: `123456`
