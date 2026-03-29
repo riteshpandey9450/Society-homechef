@@ -44,19 +44,27 @@ export const AuthProvider = ({ children }) => {
     localStorage.setItem("shc_user", JSON.stringify(updatedUser));
   };
 
-  const authFetch = async (url, options = {}) => {
-    const headers = {
-      "Content-Type": "application/json",
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-      ...options.headers,
-    };
-    const res = await fetch(url, { ...options, headers });
-    if (res.status === 401) {
-      logout();
-      throw new Error("Session expired. Please log in again.");
-    }
-    return res;
+ const authFetch = async (url, options = {}) => {
+  const headers = {
+    "Content-Type": "application/json",
+    ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    ...options.headers,
   };
+
+  const API_BASE = import.meta.env.VITE_API_URL;
+
+  const res = await fetch(`${API_BASE}${url}`, {
+    ...options,
+    headers,
+  });
+
+  if (res.status === 401) {
+    logout();
+    throw new Error("Session expired. Please log in again.");
+  }
+
+  return res;
+};
 
   return (
     <AuthContext.Provider
